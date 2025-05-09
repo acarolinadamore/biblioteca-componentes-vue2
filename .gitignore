@@ -1,0 +1,38 @@
+# dependências
+node_modules/
+
+# produção
+/dist
+/build
+
+# arquivos temporários
+*.log
+*.tmp
+*.temp
+
+# configs locais
+.env
+.env.*.local
+.vscode/
+.idea/
+
+# sistemas
+.DS_Store
+Thumbs.db
+
+# segurança
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.env
+
+# arquivos gerados
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# backups
+*.bak
+*.old
