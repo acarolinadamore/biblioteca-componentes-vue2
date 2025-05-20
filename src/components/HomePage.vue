@@ -2,7 +2,7 @@
   <div class="home-page">
     <h1 class="title">Bem-vindo ao GeoDoc</h1>
     <p class="subtitle">Sistema de documentação do Grupo Imagetech</p>
-   
+
     <div class="cards-container">
       <div class="card">
         <div class="card-icon warning">
@@ -14,7 +14,7 @@
           <p class="card-description">Documentos aguardando aprovação</p>
         </div>
       </div>
-      
+
       <div class="card">
         <div class="card-icon">
           <i class="lni lni-files"></i>
@@ -25,7 +25,7 @@
           <p class="card-description">Total de documentos no sistema</p>
         </div>
       </div>
-      
+
       <div class="card">
         <div class="card-icon success">
           <i class="lni lni-folder"></i>
@@ -37,33 +37,66 @@
         </div>
       </div>
     </div>
+    <div class="btn-container">
+      <BaseButton
+        label="Atribuir a mim"
+        iconSrc="/assets/icons/hand.svg"
+        variant="outlined"
+        textColor="#28a745"
+        borderColor="var(--color-primary-green)"
+      />
 
-        <div class="btn-group">
-  <button class="btn-outline">
-    <img src="/assets/icons/hand.svg" class="btn-icon" alt="Atribuir" />
-    Atribuir a mim
-  </button>
-  <button class="btn-success">
-    <img src="/assets/icons/check.svg" class="btn-icon" alt="Aprovar" />
-    Aprovar
-  </button>
-  <button class="btn-primary">
-    Agrupar
-  </button>
-</div>
+      <BaseButton
+        label="Aprovar"
+        iconSrc="/assets/icons/check.svg"
+        variant="filled"
+        bgColor="#43c48e"
+        textColor="#fff"
+      />
+
+      <BaseButton
+        label="Agrupar"
+        variant="filled"
+        bgColor="var(--color-primary-blue)"
+        textColor="#fff"
+      />
+
+      <BaseButton
+        label="Salvar"
+        variant="filled"
+        bgColor="var(--color-primary-green)"
+        textColor="#fff"
+      />
+
+      <BaseButton
+        label="Cancelar"
+        variant="outlined"
+        textColor="var(--color-primary-blue)"
+        borderColor="var(--color-primary-blue)"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomePage'
-}
+  name: "HomePage",
+};
 </script>
 
 <style scoped>
 .home-page {
   padding: 30px;
   max-width: 1200px;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  margin-top: 24px;
 }
 
 .title {
@@ -84,7 +117,7 @@ export default {
 }
 
 .new-doc-btn {
-  background: #0470AE;
+  background: #0470ae;
   color: white;
   border: none;
   display: flex;
@@ -108,7 +141,6 @@ export default {
 .new-doc-btn:hover {
   background: #035c8d;
 }
-
 
 .new-doc-btn i {
   font-size: 18px;
@@ -148,7 +180,7 @@ export default {
 
 .card-icon i {
   font-size: 28px;
-  color: #0078C8;
+  color: #0078c8;
 }
 
 .card-icon.warning {
@@ -156,7 +188,7 @@ export default {
 }
 
 .card-icon.warning i {
-  color: #FFC107;
+  color: #ffc107;
 }
 
 .card-icon.success {
@@ -164,7 +196,7 @@ export default {
 }
 
 .card-icon.success i {
-  color: #1A8209;
+  color: #1a8209;
 }
 
 .card-content {
@@ -181,16 +213,16 @@ export default {
 .card-count {
   font-size: 28px;
   font-weight: 700;
-  color: #0078C8;
+  color: #0078c8;
   margin-bottom: 8px;
 }
 
 .card:nth-child(1) .card-count {
-  color: #FFC107;
+  color: #ffc107;
 }
 
 .card:nth-child(3) .card-count {
-  color: #1A8209;
+  color: #1a8209;
 }
 
 .card-description {
@@ -206,7 +238,7 @@ export default {
 }
 
 button {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   height: 45px;
   width: 180px;
@@ -231,9 +263,9 @@ button {
 /* botão outline */
 .btn-outline {
   background: #fff;
-  border: 1.5px solid #37C989;
-  color: #37C989;
-  fill: #37C989;
+  border: 1.5px solid #37c989;
+  color: #37c989;
+  fill: #37c989;
 }
 
 .btn-outline .btn-icon {
@@ -242,17 +274,14 @@ button {
 
 /* botão verde */
 .btn-success {
-  background: #37C989;
+  background: #37c989;
   color: #fff;
   fill: #fff;
 }
 
 /* botão azul sólido */
 .btn-primary {
-  background: #1A82D9;
+  background: #1a82d9;
   color: #fff;
 }
-
-
-
 </style>

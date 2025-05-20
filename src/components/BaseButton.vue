@@ -1,11 +1,8 @@
 <template>
-  <button
-    :class="['base-button', variantClass]"
-    @click="$emit('click')"
-    :style="{ width: width, height: height }"
-  >
+  <button class="base-button" @click="$emit('click')" :style="buttonStyle">
     <span class="button-content">
-      <i v-if="icon" :class="['lni', icon]"></i>
+      <i v-if="icon" :class="['lni', icon, 'btn-icon']"></i>
+      <img v-else-if="iconSrc" :src="iconSrc" class="btn-icon-img" alt="icon" />
       <span class="label">{{ label }}</span>
     </span>
   </button>
@@ -13,41 +10,37 @@
 
 <script>
 export default {
-  name: 'BaseButton',
+  name: "BaseButton",
   props: {
-    label: {
-      type: String,
-      required: true
-    },
-    icon: {
-      type: String,
-      default: ''
-    },
+    label: { type: String, required: true },
+    icon: { type: String, default: "" },
+    iconSrc: { type: String, default: "" },
+    bgColor: { type: String, default: "" },
+    textColor: { type: String, default: "" },
+    borderColor: { type: String, default: "" },
+    height: { type: String, default: "42px" },
     variant: {
       type: String,
-      default: 'filled',
-      validator: value => ['filled', 'outlined', 'primary', 'success'].includes(value)
+      default: "filled",
+      validator: (val) => ["filled", "outlined"].includes(val),
     },
-    width: {
-      type: String,
-      default: '180px'
-    },
-    height: {
-      type: String,
-      default: '45px'
-    }
   },
   computed: {
-    variantClass() {
+    buttonStyle() {
       return {
-        filled: 'btn-filled',
-        outlined: 'btn-outlined',
-        primary: 'btn-primary',
-        success: 'btn-success'
-      }[this.variant]
-    }
-  }
-}
+        minWidth: "180px",
+        height: this.height,
+        backgroundColor:
+          this.variant === "outlined" ? "transparent" : this.bgColor,
+        color: this.textColor,
+        border:
+          this.variant === "outlined"
+            ? `1px solid ${this.borderColor || this.textColor}`
+            : "none",
+      };
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -55,15 +48,17 @@ export default {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
-  font-weight: 600;
+  border-radius: 8px;
+  font-weight: 400;
   font-size: 14px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  border: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   padding: 0 20px;
+  min-width: 180px;
+  height: 42px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.1s ease, background-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .button-content {
@@ -74,8 +69,13 @@ export default {
   width: 100%;
 }
 
-.lni {
+.btn-icon {
   font-size: 18px;
+}
+
+.btn-icon-img {
+  width: 18px;
+  height: 18px;
 }
 
 .label {
@@ -84,41 +84,18 @@ export default {
   text-overflow: ellipsis;
 }
 
-.btn-filled {
-  background-color: #1A8209;
-  color: white;
+.base-button:active {
+  transform: scale(0.97);
+  transition: transform 0.1s ease;
 }
 
-.btn-filled:hover {
-  background-color: #156d07;
+.base-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
-.btn-outlined {
-  background-color: transparent;
-  color: #1A8209;
-  border: 2px solid #1A8209;
-}
-
-.btn-outlined:hover {
-  background-color: rgba(26, 130, 9, 0.1);
-}
-
-.btn-primary {
-  background-color: #0078C8;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.btn-primary:hover {
-  background-color: rgba(0, 120, 200, 0.8);
-}
-
-.btn-success {
-  background-color: #1A8209;
-  color: white;
-}
-
-.btn-success:hover {
-  background-color: #156d07;
+.base-button:active {
+  transform: scale(0.97);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 </style>
