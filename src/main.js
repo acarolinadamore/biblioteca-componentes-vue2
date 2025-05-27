@@ -2,6 +2,7 @@ import Vue from 'vue'
 import SidebarMenu from './components/SidebarMenu.vue'
 import BaseButton from './components/BaseButton.vue'
 import HomePage from './components/HomePage.vue'
+import DocumentSuccess from './pages/DocumentSuccess.vue' // ← Adicione esta linha
 
 Vue.component('BaseButton', BaseButton)
 
@@ -20,7 +21,8 @@ new Vue({
   el: '#app',
   components: { 
     SidebarMenu,
-    HomePage
+    HomePage,
+    DocumentSuccess // ← Adicione esta linha
   },
   data() {
     return {
@@ -32,6 +34,7 @@ new Vue({
       <SidebarMenu @navigate="$navigateTo" />
       <main class="main-content">
         <HomePage v-if="state.currentPage === 'home'" />
+        <DocumentSuccess v-else-if="state.currentPage === 'documento-sucesso'" />
         <div v-else class="page-container">
           <h1>Página {{ state.currentPage }}</h1>
           <p>Esta página está em desenvolvimento.</p>
