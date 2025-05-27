@@ -1,9 +1,23 @@
 import Vue from 'vue'
+
 import SidebarMenu from './components/SidebarMenu.vue'
 import BaseButton from './components/BaseButton.vue'
 import HomePage from './components/HomePage.vue'
-import DocumentSuccess from './pages/DocumentSuccess.vue' // ← Adicione esta linha
+import DocumentSuccess from './pages/DocumentSuccess.vue'
+import Dashboard from './pages/Dashboard.vue'
 
+// Importar ícones do vue-awesome
+import Icon from 'vue-awesome/components/Icon'
+import 'vue-awesome/icons/calendar'
+import 'vue-awesome/icons/bell'
+import 'vue-awesome/icons/chevron-down'
+import 'vue-awesome/icons/search'
+import 'vue-awesome/icons/times'
+
+// Registrar o componente globalmente
+Vue.component('v-icon', Icon)
+
+// Registrar seu BaseButton globalmente
 Vue.component('BaseButton', BaseButton)
 
 // Estado simples para gerenciar a navegação
@@ -22,7 +36,8 @@ new Vue({
   components: { 
     SidebarMenu,
     HomePage,
-    DocumentSuccess // ← Adicione esta linha
+    DocumentSuccess,
+    Dashboard
   },
   data() {
     return {
@@ -35,6 +50,7 @@ new Vue({
       <main class="main-content">
         <HomePage v-if="state.currentPage === 'home'" />
         <DocumentSuccess v-else-if="state.currentPage === 'documento-sucesso'" />
+        <Dashboard v-else-if="state.currentPage === 'dashboard'" />
         <div v-else class="page-container">
           <h1>Página {{ state.currentPage }}</h1>
           <p>Esta página está em desenvolvimento.</p>

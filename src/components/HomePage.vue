@@ -96,6 +96,9 @@
     <button @click="$navigateTo('documento-sucesso')" style="background: green; color: white; padding: 10px; margin: 10px;">
       IR PARA PÁGINA DE SUCESSO
     </button>
+    <button @click="$navigateTo('dashboard')" style="background: green; color: white; padding: 10px; margin: 10px;">
+      Ir para Dashboard
+    </button>
   </div>
 </template>
 
