@@ -1,48 +1,40 @@
-import Vue from 'vue'
-
-import SidebarMenu from './components/SidebarMenu.vue'
-import BaseButton from './components/BaseButton.vue'
-import HomePage from './components/HomePage.vue'
-import DocumentSuccess from './pages/DocumentSuccess.vue'
-import Dashboard from './pages/Dashboard.vue'
-
-// Importar ícones do vue-awesome
-import Icon from 'vue-awesome/components/Icon'
-import 'vue-awesome/icons/calendar'
-import 'vue-awesome/icons/bell'
-import 'vue-awesome/icons/chevron-down'
-import 'vue-awesome/icons/search'
-import 'vue-awesome/icons/times'
+import Vue from "vue";
+import Icon from "vue-awesome/components/Icon";
+import "vue-awesome/icons";
+import SidebarMenu from "./components/SidebarMenu.vue";
+import BaseButton from "./components/BaseButton.vue";
+import HomePage from "./components/HomePage.vue";
+import DocumentSuccess from "./pages/DocumentSuccess.vue";
+import Dashboard from "./pages/Dashboard.vue";
+import "./tailwind.css";
 
 // Registrar o componente globalmente
-Vue.component('v-icon', Icon)
-
-// Registrar seu BaseButton globalmente
-Vue.component('BaseButton', BaseButton)
+Vue.component("v-icon", Icon);
+Vue.component("BaseButton", BaseButton);
 
 // Estado simples para gerenciar a navegação
 const state = Vue.observable({
-  currentPage: 'home'
-})
+  currentPage: "home",
+});
 
 // Método para mudar de página
-Vue.prototype.$navigateTo = function(page) {
-  state.currentPage = page
-  console.log('Navegando para:', page)
-}
+Vue.prototype.$navigateTo = function (page) {
+  state.currentPage = page;
+  console.log("Navegando para:", page);
+};
 
 new Vue({
-  el: '#app',
-  components: { 
+  el: "#app",
+  components: {
     SidebarMenu,
     HomePage,
     DocumentSuccess,
-    Dashboard
+    Dashboard,
   },
   data() {
     return {
-      state
-    }
+      state,
+    };
   },
   template: `
     <div class="app-container">
@@ -65,6 +57,6 @@ new Vue({
     </div>
   `,
   mounted() {
-    console.log('Aplicação Vue 2 iniciada com sucesso')
-  }
-})
+    console.log("Aplicação Vue 2 iniciada com sucesso");
+  },
+});

@@ -12,7 +12,11 @@
             <span class="badge">3</span>
           </div>
           <div class="user-profile">
-            <img src="/placeholder.svg?height=32&width=32" alt="Ana Carolina" class="avatar" />
+            <img
+              src="/placeholder.svg?height=32&width=32"
+              alt="Ana Carolina"
+              class="avatar"
+            />
             <span>Ana Carolina</span>
             <v-icon name="chevron-down" class="icon" />
           </div>
@@ -23,7 +27,9 @@
           <span class="wave">👋</span>
           <h1>Bem-vindo, <strong>Melanie</strong></h1>
         </div>
-        <p class="welcome-subtitle">Ao seu sistema de Gestão de Processos internos</p>
+        <p class="welcome-subtitle">
+          Ao seu sistema de Gestão de Processos internos
+        </p>
       </div>
       <div class="cards-grid">
         <div class="card card-yellow">
@@ -57,7 +63,9 @@
           <div class="card-content">
             <div class="card-item blue">Folha de Pagamento / Abril 2025</div>
             <div class="card-item blue">Contrato Prestador / Jurídico</div>
-            <div class="card-item blue">Relatório de Indicadores / Financeiro</div>
+            <div class="card-item blue">
+              Relatório de Indicadores / Financeiro
+            </div>
           </div>
         </div>
         <div class="card card-white">
@@ -66,12 +74,24 @@
             <v-icon name="sync" class="icon-gray" />
           </div>
           <div class="card-content recent-access">
-            <div class="card-item blue clickable">Folha de Pagamento / Abril 2025</div>
-            <div class="card-item blue clickable">Contrato Prestador / Jurídico</div>
-            <div class="card-item blue clickable">Relatório de Indicadores / Financeiro</div>
-            <div class="card-item blue clickable">Folha de Pagamento / Abril 2025</div>
-            <div class="card-item blue clickable">Contrato Prestador / Jurídico</div>
-            <div class="card-item blue clickable">Relatório de Indicadores / Financeiro</div>
+            <div class="card-item blue clickable">
+              Folha de Pagamento / Abril 2025
+            </div>
+            <div class="card-item blue clickable">
+              Contrato Prestador / Jurídico
+            </div>
+            <div class="card-item blue clickable">
+              Relatório de Indicadores / Financeiro
+            </div>
+            <div class="card-item blue clickable">
+              Folha de Pagamento / Abril 2025
+            </div>
+            <div class="card-item blue clickable">
+              Contrato Prestador / Jurídico
+            </div>
+            <div class="card-item blue clickable">
+              Relatório de Indicadores / Financeiro
+            </div>
           </div>
         </div>
       </div>
@@ -79,7 +99,8 @@
         <div class="search-card">
           <h2>Busca Rápida de Documento</h2>
           <p class="search-description">
-            Encontre rapidamente documentos pelo título, número, unidade ou etapa. Use os filtros para refinar sua busca.
+            Encontre rapidamente documentos pelo título, número, unidade ou
+            etapa. Use os filtros para refinar sua busca.
           </p>
           <div class="search-input-container">
             <v-icon name="search" class="search-icon" />
@@ -89,7 +110,7 @@
               class="search-input"
               v-model="searchQuery"
             />
-            <button 
+            <button
               v-if="searchQuery"
               @click="clearSearch"
               class="clear-button"
@@ -104,34 +125,29 @@
 </template>
 
 <script>
-import 'vue-awesome/icons/calendar'
-import 'vue-awesome/icons/bell'
-import 'vue-awesome/icons/chevron-down'
-import 'vue-awesome/icons/sync'
-import 'vue-awesome/icons/search'
-import 'vue-awesome/icons/times'
-import Icon from 'vue-awesome/components/Icon'
+import "vue-awesome/icons/calendar";
+import "vue-awesome/icons/bell";
+import "vue-awesome/icons/chevron-down";
+import "vue-awesome/icons/sync";
+import "vue-awesome/icons/search";
+import "vue-awesome/icons/times";
 
 export default {
-  name: 'Dashboard',
-  components: {
-    'v-icon': Icon
-  },
+  name: "Dashboard",
   data() {
     return {
-      searchQuery: ''
-    }
+      searchQuery: "",
+    };
   },
   methods: {
     clearSearch() {
-      this.searchQuery = ''
-    }
-  }
-}
+      this.searchQuery = "";
+    },
+  },
+};
 </script>
 
 <style scoped>
-/* Reset e base */
 * {
   box-sizing: border-box;
 }
@@ -140,7 +156,7 @@ export default {
   min-height: 100vh;
   background-color: #f9fafb;
   display: flex;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 /* Sidebar */
@@ -440,13 +456,13 @@ export default {
   .cards-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .header {
     flex-direction: column;
     gap: 16px;
     align-items: flex-start;
   }
-  
+
   .welcome-title h1 {
     font-size: 24px;
   }

@@ -75,40 +75,29 @@
         borderColor="var(--color-primary-blue)"
       />
     </div>
-     <div class="status-card-examples" style="margin-top: 40px;">
-      <h2>Exemplos de StatusCard</h2>
-
-      <status-card 
-        titulo="Pendentes" 
-        :total="3" 
-        :documentos="['Documento A', 'Documento B', 'Documento C']" 
-        corBg="bg-yellow-100"
-      />
-
-      <status-card 
-        titulo="Concluídos" 
-        :total="5" 
-        :documentos="['Doc 1', 'Doc 2', 'Doc 3', 'Doc 4', 'Doc 5']"
-        corBg="bg-green-100"
-        style="margin-top: 20px;"
-      />
-    </div>
-    <button @click="$navigateTo('documento-sucesso')" style="background: green; color: white; padding: 10px; margin: 10px;">
-      IR PARA PÁGINA DE SUCESSO
+    <button
+      @click="$navigateTo('documento-sucesso')"
+      style="background: green; color: white; padding: 10px; margin: 10px"
+    >
+      Ir para Novo Documento Sucesso
     </button>
-    <button @click="$navigateTo('dashboard')" style="background: green; color: white; padding: 10px; margin: 10px;">
+    <button
+      @click="$navigateTo('dashboard')"
+      style="background: green; color: white; padding: 10px; margin: 10px"
+    >
       Ir para Dashboard
     </button>
+    <h1 class="text-3xl font-bold text-blue-600">Hello Tailwind!</h1>
   </div>
 </template>
 
 <script>
-import StatusCard from '@/components/StatusCard.vue'
+import StatusCard from "@/components/StatusCard.vue";
 export default {
   name: "HomePage",
   components: {
-    StatusCard
-  }
+    StatusCard,
+  },
 };
 </script>
 
